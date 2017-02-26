@@ -1,7 +1,7 @@
-all: stbard1 stahed1
+all: stmask1 stahed1
 
-stbard1: stbard1.py
-	@python $(PYROP)/pyrop.py stbard1.py build/stbard1.bin
+stmask1: stmask1.py
+	@python $(PYROP)/pyrop.py stmask1.py build/stmask1.bin
 
 stahed1: stahed1.py
 	@python $(PYROP)/pyrop.py stahed1.py build/stahed1.bin

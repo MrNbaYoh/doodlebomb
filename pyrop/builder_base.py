@@ -99,7 +99,7 @@ class BasicBuilder(BaseBuilder):
 
     @user_function
     def align(self, value: int):
-        self.append([0 for i in range(value - (len(self.chain) % value))])
+        self.append([0 for i in range((value - (self.mem_offset % value)) % value)])
 
     @user_function
     def fill(self, size: int, value: int, v_byte_size: int = 1):

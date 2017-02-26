@@ -334,7 +334,9 @@ class PopModule(BaseBuilder):
                 raise Exception("Could not find pop_macro to pop register(s): " + str(reg_set))
             reg_set -= self.pop_macros[pop_stack[-1]][1]
         for func in pop_stack:
-            candidates[func][0](**{reg: registers.get(reg, None) for  reg in candidates[func][1]})
+            candidates[func][0](**{reg: registers.get(reg, 0x0) for reg in candidates[func][1]})
+            # if the value to pop isn't specified, then pop 0x0, for example when you only have pop {r2-r6, pc} to pop
+            # r2 then 0x0 will be popped to r3-r6
         print(pop_stack)
 
     @staticmethod
