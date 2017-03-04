@@ -2,7 +2,8 @@ import constants
 include("../ropdb/EUR.py")
 
 def sleep(time):
-    pop(r0=time, r1=0, r14=NOP)
+    SET_LR(NOP)
+    pop(r0=time, r1=0)
     add_word(SVC_SLEEPTHREAD)
 
 def garbage(n):
@@ -20,11 +21,15 @@ def POP_R1(r1):
     add_word(r1)
 
 @pop_macro
-def SET_LR(r14):
+def POP_R3(r3):
+    add_word(POP_R3PC)
+    add_word(r3)
+
+def SET_LR(lr):
     POP_R1(NOP)
     add_word(POP_R4LR_BX_R1)
     add_word(0xDEADC0DE) #r4 garbage
-    add_word(r14)
+    add_word(lr)
 
 @pop_macro
 def POP_R2R3R4R5R6(r2, r3, r4, r5, r6):
@@ -100,7 +105,8 @@ def compare_r0_0():
     add_word(0xDEADC0DE)
 
 def store_if_equal(value, addr):
-    pop(r0=addr, r1=value, r14=NOP)
+    SET_LR(NOP)
+    pop(r0=addr, r1=value)
     add_word(STREQ_R1R0_BX_LR)
 
 def deref_and_store(src, dst):

