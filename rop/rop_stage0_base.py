@@ -65,7 +65,7 @@ add_word(FS_CLOSEFILE + 0x4)
 SET_LR(POP_R4R5PC) # skip the two args after create_thread
 pop(r0=VALID_ADDRESS, r3=STAGE1_DEST) # r0=valid address to store unused value
                                       # r3=thread stack pointer
-                                      # r1=thread entrypoint, not need to set r1 here since SET_LR already does that
+                                      # r1=thread entrypoint, no need to set r1 here since SET_LR already does that
 add_word(SVC_CREATE_THREAD)
 add_word(0x31) # thread priority
 add_word(0xFFFFFFFE) # -2 => execute thread on the default CPU
