@@ -124,6 +124,10 @@ def mov_r11_to_r0():
     POP_R1(NOP)
     add_word(MOV_R0R11_BLX_R1)
 
+def mov_r9_to_r0():
+    POP_R1(NOP)
+    add_word(MOV_R0R9_BLX_R1)
+
 def store_r0(addr):
     POP_R1(addr)
     add_word(STR_R0R1_POP_R4PC)

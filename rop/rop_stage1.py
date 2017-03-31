@@ -51,7 +51,9 @@ store_r0(loop_dst)
 pop(r0=NOP_ptr_min_0x14)
 
 put_label("loop_off")
-fill(scan_loop+0x21C-loop_off-4, NOP, 4)
+print("scanloop: ", scan_loop)
+print("loop_off: ", loop_off)
+fill(scan_loop+0x21C-loop_off-4, 11223344, 4)
 
 put_label("loop_pivot")
 add_word(SUB_SPSP_21C_LDR_R1R0_LDR_R1R1_14_BLX_R1)
@@ -62,11 +64,11 @@ deref_to_r0(loop_src)
 add_r0(0x100000000 - SCANLOOP_STRIDE)
 store_r0(final_dst)
 
-mount_sdmc(sdmc_string)
-try_open_file(context, file_path, FSFILE_READ)
-try_get_size(context, file_size)
-try_read_file(context, 0, 0, bytes_read, file_size, LINEAR_BUFFER)
-close_file(context)
+#mount_sdmc(sdmc_string)
+#try_open_file(context, file_path, FSFILE_READ)
+#try_get_size(context, file_size)
+#try_read_file(context, 0, 0, bytes_read, file_size, LINEAR_BUFFER)
+#close_file(context)
 
 put_label("final_dst")
 
@@ -91,4 +93,4 @@ put_label("context")
 fill(0x20, 0)
 
 put_label("file_path")
-add_utf16("sdmc:/doodlebomb/initial.bin")
+add_utf16("sdmc:/doodlebomb/initial.bin\0\0")

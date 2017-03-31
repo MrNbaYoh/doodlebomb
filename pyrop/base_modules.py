@@ -180,6 +180,7 @@ class LabelModule(BaseBuilder):
             raise ValueError("Label address should be 32 bits long!")
 
         self.current_context[name] = address
+        self.user_functions.update(self.current_context)
 
     def __getitem__(self, name):
         """

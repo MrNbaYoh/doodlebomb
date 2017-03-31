@@ -72,7 +72,7 @@ class BasicBuilder(BaseBuilder):
         if word.bit_length() > bit_size:
             raise ValueError("Value does not fit in a " + str(bit_size) + "bits word!")
 
-        self.append(word.to_bytes(byte_size, 'little'))
+        self.append((word if self.loaded else 0).to_bytes(byte_size, 'little'))
 
     @user_function
     def add_word(self, word):
