@@ -1,5 +1,16 @@
 import constants
-include("../ropdb/EUR.py")
+include("../ropdb/DB.py")
+
+def compare(first, second, size):
+    SET_LR(NOP)
+    pop(r0=first, r1=second, r2=size)
+    add_word(ISEQUAL+0x10) #compare two blocks, if they're identical return true
+    garbage(2)
+
+def memcpy(dest, src, size):
+    SET_LR(NOP)
+    pop(r0=dest, r1=src, r2=size)
+    add_word(MEMCPY)
 
 def sleep(time):
     SET_LR(NOP)
@@ -158,6 +169,11 @@ def close_file(ctx_ptr):
 def mov_r0_to_r1():
     add_word(MOV_R1R0_POP_R4R5PC)
     garbage(2)
+
+def flush_dcache(addr, size):
+    pop(r0=addr, r1=size)
+    add_word(GSPGPU_FLUSHDATACACHE_WRAPPER+0x4)
+    garbage(3)
 
 ### MACROS FOR STACK BASE ADDRESS AGNOSTIC ROP ###
 
