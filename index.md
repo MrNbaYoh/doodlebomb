@@ -1,37 +1,54 @@
-## Welcome to GitHub Pages
+## ![Image](http://i.imgur.com/2rezJxz.png) Doodlebomb
 
-You can use the [editor on GitHub](https://github.com/MrNbaYoh/doodlebomb/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Doodlebomb is a userland exploit for the 3ds application Swapdoodle. It allow one to access [the Homebrew Launcher](http://smealum.github.io/3ds/) through the game.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Requirements
 
-### Markdown
+To be able to install doodlebomb you need : 
+* a 3ds on firmware <= 11.3
+* a digital copy of Swapdoodle (available for free on the eshop)
+* a way to boot [the Homebrew Launcher](http://smealum.github.io/3ds/) OR a friend who already have doodlebomb installed
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Installation
 
-```markdown
-Syntax highlighted code block
+#### With [the Homebrew Launcher](http://smealum.github.io/3ds/)
 
-# Header 1
-## Header 2
-### Header 3
+1. Download the [doodlebomb_installer]() archive and extract its content to the /3ds folder on your SD card.
+2. Launch the installer through the HBL, select swapdoodle when asked and follow the instructions.
+3. Go to the final step.
 
-- Bulleted
-- List
+#### Without [the Homebrew Launcher](http://smealum.github.io/3ds/)
 
-1. Numbered
-2. List
+1. Ask a friend who already have doodlebomb installed to just send you its own doodlebomb letter (only the letter installed via the homebrew installer can be sent).
+2. Go to the final step.
 
-**Bold** and _Italic_ and `Code` text
+#### Final step
 
-[Link](url) and ![Image](src)
-```
+1. Get the [doodlebomb archive]() and copy the files according to your region to /doodlebomb/ on your SD card (you may have to manually create this folder).
+2. Download the [otherapp payload](http://smealum.github.io/3ds/) corresponding to your region/console/firmware etc.
+3. Copy the otherapp payload to the /doodlebomb folder and rename it "otherapp.bin".
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### How to use doodlebomb
 
-### Jekyll Themes
+To access the HBL with doodlebomb, just try to open the doodlebomb letter in swapdoodle, it should run the hax payload.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/MrNbaYoh/doodlebomb/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Troubleshooting
 
-### Support or Contact
+**When I try to open the doodlebomb letter it seems to load another letter...**
+If after you've installed doodlebomb with the homebrew installer you received some letters, it is possible that these freshly received letters may have confused the letter manager. Just try to install it again without receiving new letters and it should run fine.
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+**When I try to open the doodlebomb letter, a message is displayed...**
+As stated in this error message you probably forgot to put the rop.bin file in the /doodlebomb folder. If it still occurs after checking the file are present in required location, exit the game and try again. If this error persists, ask for help.
+
+**When I try to run the exploit the game just crashes...**
+Firstly check that all the required files are actually in the /doodlebomb folder. Then verify the region of the files, maybe you've just copied the wrong file for another region. Moreover some random crashes may occur sometimes, just reboot and try again. If the issue persists, ask for help.
+
+### I don't have any friend and I can't run the HBL, what can I do ?
+
+You can probably find some friends and people that would be glad to help on the internet through forums and social network. Try to use the #GetDoodlebomb hashtag on twitter to find people that are able to help you.
+
+
+### Thanks
+* [Vegaroxas](https://github.com/VegaRoXas) : ropdb base, pyrop bug finding, exploit name and many other things
+* [d3m3vilurr](https://github.com/d3m3vilurr) : help for JAP version
+* [smealum](https://github.com/smealum) : do I really need to enumerate all the reasons ?
