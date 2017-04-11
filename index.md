@@ -13,9 +13,10 @@ To be able to install doodlebomb you need :
 
 #### With [the Homebrew Launcher](http://smealum.github.io/3ds/)
 
-1. Download the [doodlebomb_installer](https://github.com/MrNbaYoh/doodlebomb_installer/releases/) archive and extract its content to the /3ds folder on your SD card.
-2. Launch the installer through the HBL, select swapdoodle when asked and follow the instructions.
-3. Go to the final step.
+1. Make sure you're the author of the latest created letter (it will be overwritten). If you have no idea about that, just create a new letter and make sure you do not receive any letter afterwards.
+2. Download the [doodlebomb_installer](https://github.com/MrNbaYoh/doodlebomb_installer/releases/) archive and extract its content to the /3ds folder on your SD card.
+3. Launch the installer through the HBL and follow the instructions.
+4. Go to the final step.
 
 #### Without [the Homebrew Launcher](http://smealum.github.io/3ds/)
 
@@ -34,9 +35,6 @@ To access the HBL with doodlebomb, just try to open the doodlebomb letter in swa
 
 ### Troubleshooting
 
-**When I try to open the doodlebomb letter it seems to load another letter...**
-If after you've installed doodlebomb with the homebrew installer you received some letters, it is possible that these freshly received letters may have confused the letter manager. Just try to install it again without receiving new letters and it should run fine.
-
 **When I try to open the doodlebomb letter, a message is displayed...**
 As stated in this error message you probably forgot to put the rop.bin file in the /doodlebomb folder. If it still occurs after checking the file are present in required location, exit the game and try again. If this error persists, ask for help.
 
@@ -52,3 +50,4 @@ You can probably find some friends and people that would be glad to help on the 
 * [Vegaroxas](https://github.com/VegaRoXas) : ropdb base, pyrop bug finding, exploit name and many other things
 * [d3m3vilurr](https://github.com/d3m3vilurr) : help for JAP version
 * [smealum](https://github.com/smealum) : do I really need to enumerate all the reasons ?
+* ChampionLeake789 : tester
