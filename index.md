@@ -20,8 +20,9 @@ To be able to install doodlebomb you need :
 
 #### Without [the Homebrew Launcher](http://smealum.github.io/3ds/)
 
-1. Ask a friend who already have doodlebomb installed to just send you its own doodlebomb letter (only the letter installed via the homebrew installer can be sent).
-2. Go to the final step.
+1. Make sure you can receive special letters (turn on the option in the game settings)
+2. Ask a friend who already have doodlebomb installed to just send you its own doodlebomb letter (only the letter installed via the homebrew installer can be sent).
+3. Go to the final step.
 
 #### Final step
 
