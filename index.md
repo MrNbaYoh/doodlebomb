@@ -45,7 +45,7 @@ Firstly check that all the required files are actually in the /doodlebomb folder
 
 ### I don't have any friend and I can't run the HBL, what can I do ?
 
-You can probably find some friends and people that would be glad to help on the internet through forums and social network. Try to use the #GetDoodlebomb hashtag on twitter to find people that are able to help you.
+You can probably find some friends and people that would be glad to help on the internet through forums and social network. Try to use the [#GetDoodlebomb](https://twitter.com/hashtag/GetDoodlebomb) hashtag on twitter to find people that are able to help you.
 
 
 ### Thanks
