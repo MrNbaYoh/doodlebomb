@@ -6,7 +6,7 @@ Doodlebomb is a userland exploit for the 3ds application Swapdoodle. It allow on
 
 To be able to install doodlebomb you need : 
 * a 3ds on firmware <= 11.4
-* a digital copy of Swapdoodle (available for free on the eshop)
+* a digital copy of Swapdoodle (v1.1.1) (available for free on the eshop)
 * a way to boot [the Homebrew Launcher](http://smealum.github.io/3ds/) OR a friend who already have doodlebomb installed
 
 ### Installation
